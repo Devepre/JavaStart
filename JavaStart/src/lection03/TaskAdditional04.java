@@ -40,9 +40,9 @@ public class TaskAdditional04 {
 		}
 
 		if (isPalindrom) {
-			System.out.println("It's polindrom");
+			System.out.println("It's palindrom");
 		} else {
-			System.out.println("Itisn't polindrom");
+			System.out.println("Itisn't palindrom");
 		}
 	}
 
