@@ -30,13 +30,13 @@ public class TaskAdditional04 {
 		if (digitL == digitR) {
 			digitL = (number / 10000) % 10;
 			digitR = (number / 10) % 10;
-			if (digitL == digitR) {
-				digitL = (number / 1000) % 10;
-				digitR = (number / 100) % 10;
-				if (digitL == digitR) {
-					isPalindrom = true;
-				}
-			}
+		}
+		if (digitL == digitR) {
+			digitL = (number / 1000) % 10;
+			digitR = (number / 100) % 10;			
+		}
+		if (digitL == digitR) {
+			isPalindrom = true;
 		}
 
 		if (isPalindrom) {
