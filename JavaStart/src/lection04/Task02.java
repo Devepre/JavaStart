@@ -1,14 +1,26 @@
 package lection04;
 
-/*Вычислить с помощью цикла факториал числа n 
-введенного с клавиатуры (4<n<16). Факториал числа 
-это произведение всех чисел от этого числа до 1. 
-Например 5!=5*4*3*2*1=120*/
+import java.util.Scanner;
+
+/*Р’С‹С‡РёСЃР»РёС‚СЊ СЃ РїРѕРјРѕС‰СЊСЋ С†РёРєР»Р° С„Р°РєС‚РѕСЂРёР°Р» С‡РёСЃР»Р° n РІРІРµРґРµРЅРЅРѕРіРѕ СЃ 
+ * РєР»Р°РІРёР°С‚СѓСЂС‹ (4<n<16). Р¤Р°РєС‚РѕСЂРёР°Р» С‡РёСЃР»Р° СЌС‚Рѕ РїСЂРѕРёР·РІРµРґРµРЅРёРµ РІСЃРµС… 
+ * С‡РёСЃРµР» РѕС‚ СЌС‚РѕРіРѕ С‡РёСЃР»Р° РґРѕ 1. РќР°РїСЂРёРјРµСЂ 5!=5*4*3*2*1=120*/
 
 public class Task02 {
 
 	public static void main(String[] args) {
-		
+		int n;
+		int result = 1;
+		System.out.println("Please enter n for factorial:");
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		sc.close();
+
+		int i = n;
+		for (; i > 1; i--) {
+			result *= i;
+		}
+		System.out.println(result);
 
 	}
 
