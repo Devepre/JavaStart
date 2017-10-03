@@ -1,20 +1,41 @@
 package lection04;
 
-/*С помощью цикла (только одного) нарисовать такую фигуру. 
-Причем максимальная высота этой фигуры вводится с клавиатуры 
-(в примере максимальна высота 4)
+import java.util.Scanner;
+
+/*РЎ РїРѕРјРѕС‰СЊСЋ С†РёРєР»Р° (С‚РѕР»СЊРєРѕ РѕРґРЅРѕРіРѕ) РЅР°СЂРёСЃРѕРІР°С‚СЊ С‚Р°РєСѓСЋ С„РёРіСѓСЂСѓ. 
+ * РџСЂРёС‡РµРј РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РІС‹СЃРѕС‚Р° СЌС‚РѕР№ С„РёРіСѓСЂС‹ РІРІРѕРґРёС‚СЃСЏ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹ 
+ * (РІ РїСЂРёРјРµСЂРµ РјР°РєСЃРёРјР°Р»СЊРЅР° РІС‹СЃРѕС‚Р° 4)
 *
 **
 ***
 ****
 ***
 **
-**/
+*
+* */
 
 public class TaskAdditional01 {
 
 	public static void main(String[] args) {
-		
+		System.out.println("Please provide max width:");
+		Scanner sc = new Scanner(System.in);
+		int width;
+		width = sc.nextInt();
+
+		int checker = 1;
+		int step = checker + 1;
+		boolean up = true;
+		for (int i = 1; i <= width * width; i++) {
+			System.out.print("*");
+			if (i == checker) {
+				System.out.println();
+				checker = checker + step;
+				if (step == width) {
+					up = false;
+				}
+				step = up ? ++step : --step;
+			}
+		}
 
 	}
 
