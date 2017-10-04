@@ -10,7 +10,7 @@ public class Task02 {
 
 	public static void main(String[] args) {
 		int n;
-		int result = 1;
+		long result = 1L;
 		System.out.println("Please enter n for factorial:");
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
