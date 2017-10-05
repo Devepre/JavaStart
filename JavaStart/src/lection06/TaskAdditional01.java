@@ -20,7 +20,7 @@ public class TaskAdditional01 {
 		System.out.println("Please provide at least 3 numbers separated by comma , ");
 		int[] array = getArray();
 		long res = getNext(array);
-		
+
 		System.out.println(res);
 
 	}
@@ -30,7 +30,7 @@ public class TaskAdditional01 {
 
 		if (array[1] - array[0] == array[2] - array[1]) {
 			result = array[array.length - 1] - array[array.length - 2] + array[array.length - 1];
-		} else if (array[1] / array[0] == array[2] / array[1]) {
+		} else if ((double) array[1] / array[0] == (double) array[2] / array[1]) {
 			result = array[array.length - 1] * (array[1] / array[0]);
 		} else {
 			int i = 1;
@@ -39,7 +39,10 @@ public class TaskAdditional01 {
 				i++;
 				p = Math.pow(array[1], 1.0 / i);
 			} while ((Math.pow(2, i) < array[1]));
-			result = (int) Math.pow(array.length + 1, i);
+			if (p - (int) p > 0) {
+				result = -1;
+			} else
+				result = (int) Math.pow(array.length + 1, i);
 		}
 
 		return result;
