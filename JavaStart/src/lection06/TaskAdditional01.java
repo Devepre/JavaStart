@@ -20,18 +20,34 @@ public class TaskAdditional01 {
 		System.out.println("Please provide at least 3 numbers separated by comma , ");
 		int[] array = getArray();
 		long res = getNext(array);
-
-		System.out.println(res);
+		
+		if (res == -1) {
+			System.out.println("Wrong input.");
+		} else {
+			System.out.println(res);
+		}
 
 	}
 
-	public static long getNext(int... array) {
-		long result = 0L;
+	static int checkArray(int... array) {
+		int result = -1;
 
 		if (array[1] - array[0] == array[2] - array[1]) {
-			result = array[array.length - 1] - array[array.length - 2] + array[array.length - 1];
+			int difference = array[1] - array[0];
+			result = 0;
+			for (int i = 2; i < array.length; i++) {
+				if (array[i] - array[i - 1] != difference) {
+					result = -1;
+				}
+			}
 		} else if ((double) array[1] / array[0] == (double) array[2] / array[1]) {
-			result = array[array.length - 1] * (array[1] / array[0]);
+			double difference = (double) array[1] / array[0];
+			result = 1;
+			for (int i = 2; i < array.length; i++) {
+				if (((double) array[i] / array[i - 1]) != difference) {
+					result = -1;
+				}
+			}
 		} else {
 			int i = 1;
 			double p;
@@ -41,8 +57,36 @@ public class TaskAdditional01 {
 			} while ((Math.pow(2, i) < array[1]));
 			if (p - (int) p > 0) {
 				result = -1;
-			} else
-				result = (int) Math.pow(array.length + 1, i);
+			} else {
+				result = i;
+				for (int k = 2; k < array.length; k++) {
+					if (array[k] != (int) Math.pow(k + 1, i)) {
+						result = -1;
+					}
+				}
+			}
+		}
+
+		return result;
+	}
+
+	public static long getNext(int... array) {
+		long result = 0L;
+		
+		int decision = checkArray(array);
+		switch (decision) {
+		case -1:
+			result = -1;
+			break;
+		case 0:
+			result = array[array.length - 1] - array[array.length - 2] + array[array.length - 1];
+			break;
+		case 1:
+			result = array[array.length - 1] * (array[1] / array[0]);
+			break;
+		default:
+			result = (int) Math.pow(array.length + 1, decision);
+			break;
 		}
 
 		return result;
